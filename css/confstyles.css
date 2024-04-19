@@ -1,0 +1,88 @@
+/* Reset CSS per assicurare la coerenza tra i browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stile per il corpo della pagina */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Stile per il contenitore principale */
+.container {
+    width: 80%;
+    max-width: 800px;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+/* Stile per i titoli */
+h1 {
+    margin-bottom: 50px;
+    color: #333;
+    text-align: center;
+}
+
+/* Stile per le etichette */
+label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Stile per gli input */
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Stile per i pulsanti */
+button {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/* Stile per i pulsante singolo di configurazione Valori */
+.bttconf{
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #e29300;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+.bttconf:hover {
+    background-color: #aa0b0b;
+}
+
+/* Margini aggiuntivi per separare elementi */
+form > div {
+    margin-bottom: 30px;
+}
