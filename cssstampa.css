@@ -1,0 +1,9 @@
+/* Nascondi tutti gli elementi della pagina eccetto il riepilogo del costo */
+body * {
+    display: none;
+}
+
+/* Mostra solo il riepilogo del costo durante la stampa */
+#riepilogoCosto {
+    display: block !important;
+}
