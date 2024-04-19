@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventivi Servizi Noleggio Bus</title>
+    <link rel="stylesheet" href="css/confstyles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Calcolo Costi Servizio</h1>
+        <form id="costoServizioForm">
+            <label for="km">1. Inserisci i km totali del servizio:</label>
+            <input type="number" id="km" name="km" required><br>
+            <label for="giorniExtra">2. Giorni oltre il viaggio A/R:</label>
+            <input type="number" id="giorniExtra" name="giorniExtra" required><br>
+            <div id="secondoAutista" style="display:none;">
+                <label for="secondoAutistaInput">È presente un secondo autista? (si/no):</label>
+                <input type="text" id="secondoAutistaInput" name="secondoAutistaInput"><br>
+            </div>
+            <div id="giorniSecondoAutista" style="display:none;">
+                <label for="giorniSecondoAutistaInput">Per quanti giorni sarà presente il secondo autista?</label>
+                <input type="number" id="giorniSecondoAutistaInput" name="giorniSecondoAutistaInput"><br>
+            </div>
+            <label for="giorniFestivi">3. Ci sono giornate festive extra tipo Natale/Pasqua ecc. ecc.?</label><br>
+            <input type="number" id="giorniFestivi" name="giorniFestivi" required><br>
+            <label for="spesePermessi">4. Ci sono spese o permessi ecopass/parking? (Inserire l'importo, oppure 0 se non presenti):</label>
+            <input type="number" id="spesePermessi" name="spesePermessi" required><br>
+            <button type="submit">Calcola Costo</button>
+            <button class="bttconf" onclick="window.location.href = 'pagina2.html';">Configura Valori Fissi</button><br>
+        </form>
+    </div>
+
+    <script src="script/script.js"></script>
+    <div id="risultatoContainer" style="display: none;">
+        <h2>Risultato:</h2>
+        <div id="risultato"></div>
+        <button id="stampareBtn">Stampa</button>
+    </div>
+
+    
+</body>
+</html>

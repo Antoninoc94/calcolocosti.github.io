@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifica Valori Fissi</title>
+    <link rel="stylesheet" href="css/confstyles.css">
+</head>
+<body>
+    <div class="container">
+    <h1>Modifica Valori Fissi</h1>
+    <br>
+    <form id="valoriFissiForm">
+        <label for="costoPerKm">Costo per Km:</label>
+        <input type="number" id="costoPerKm" name="costoPerKm" value="1.80" step="0.01"><br>
+        
+        <label for="costoGiorniImpegnati">Costo per Giorni Impegnati:</label>
+        <input type="number" id="costoGiorniImpegnati" name="costoGiorniImpegnati" value="800" step="0.01"><br>
+        
+        <label for="costoSecondoAutistaPerGiorno">Costo per Secondo Autista per Giorno:</label>
+        <input type="number" id="costoSecondoAutistaPerGiorno" name="costoSecondoAutistaPerGiorno" value="200" step="0.01"><br>
+        
+        <label for="costoGiorniFestiviExtra">Costo per Giorni Festivi Extra:</label>
+        <input type="number" id="costoGiorniFestiviExtra" name="costoGiorniFestiviExtra" value="100" step="0.01"><br>
+        
+        
+        <button type="submit">Salva</button>
+    </div>
+    </form>
+    <script>
+        document.getElementById('valoriFissiForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Recupera i valori inseriti nel modulo
+            const costoPerKm = parseFloat(document.getElementById('costoPerKm').value);
+            const costoGiorniImpegnati = parseFloat(document.getElementById('costoGiorniImpegnati').value);
+            const costoSecondoAutistaPerGiorno = parseFloat(document.getElementById('costoSecondoAutistaPerGiorno').value);
+            const costoGiorniFestiviExtra = parseFloat(document.getElementById('costoGiorniFestiviExtra').value);
+
+            // Salva i valori in localStorage
+            localStorage.setItem('costoPerKm', costoPerKm);
+            localStorage.setItem('costoGiorniImpegnati', costoGiorniImpegnati);
+            localStorage.setItem('costoSecondoAutistaPerGiorno', costoSecondoAutistaPerGiorno);
+            localStorage.setItem('costoGiorniFestiviExtra', costoGiorniFestiviExtra);
+
+            // Redirect alla prima pagina
+            window.location.href = 'Pagina1.html';
+        });
+    </script>
+</body>
+</html>
