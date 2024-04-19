@@ -10,16 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
 
         // Recupera i valori inseriti nel modulo
-        const kmTotali = parseInt(form.km.value);
-        const giorniImpegnati = parseInt(form.giorniExtra.value);
-        const secondAutistaGiorni = parseInt(form.giorniSecondoAutistaInput.value);
-        const giorniFestiviExtra = parseInt(form.giorniFestivi.value);
-        const spesePermessiExtra = parseInt(form.spesePermessi.value);
+        const kmTotali = parseInt(form.km.value) || 0;
+        const giorniImpegnati = parseInt(form.giorniExtra.value) || 0;
+        const secondAutista = form.secondoAutistaInput.value.toLowerCase() === 'si';
+        const secondAutistaGiorni = secondAutista ? parseInt(form.giorniSecondoAutistaInput.value) || 0 : 0;
+        const giorniFestiviExtra = parseInt(form.giorniFestivi.value) || 0;
+        const spesePermessiExtra = parseFloat(form.spesePermessi.value) || 0;
 
         // Calcola il costo totale del servizio secondo la logica fornita
         const costoKm = kmTotali * 1.80 + 200;
         const costoGiorniImpegnati = giorniImpegnati * 800;
-        const costoSecondAutista = secondAutistaGiorni * 200;
+        const costoSecondAutista = secondAutista && secondAutistaGiorni > 0 ? secondAutistaGiorni * 200 : 0;
         const costoGiorniFestiviExtra = giorniFestiviExtra * 100;
         const totale = costoKm + costoGiorniImpegnati + costoSecondAutista + costoGiorniFestiviExtra + spesePermessiExtra;
 
@@ -43,22 +44,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mostra/nascondi il campo per il secondo autista in base alla risposta
     form.giorniExtra.addEventListener('input', function() {
-        const giorniExtra = parseInt(this.value);
-        if (giorniExtra > 0) {
-            secondoAutistaDiv.style.display = 'block';
-        } else {
-            secondoAutistaDiv.style.display = 'none';
-            giorniSecondoAutistaDiv.style.display = 'none';
-        }
+        const giorniExtra = parseInt(this.value) || 0;
+        secondoAutistaDiv.style.display = giorniExtra > 0 ? 'block' : 'none';
     });
 
     // Mostra/nascondi il campo per i giorni del secondo autista in base alla risposta
     form.secondoAutistaInput.addEventListener('input', function() {
         const secondoAutistaInput = this.value.toLowerCase();
-        if (secondoAutistaInput === 'si') {
-            giorniSecondoAutistaDiv.style.display = 'block';
-        } else {
-            giorniSecondoAutistaDiv.style.display = 'none';
-        }
+        giorniSecondoAutistaDiv.style.display = secondoAutistaInput === 'si' ? 'block' : 'none';
     });
 });

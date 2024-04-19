@@ -86,3 +86,20 @@ button:hover {
 form > div {
     margin-bottom: 30px;
 }
+
+@media print {
+    body * {
+        visibility: hidden;  /* Nasconde tutto il contenuto del body durante la stampa */
+    }
+    .result, .result * {
+        visibility: visible;  /* Mostra solo il contenuto del div .result e i suoi figli */
+    }
+    .result {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+        padding: 20px;  /* Aggiunge un po' di spazio intorno ai risultati */
+        width: 100%;  /* Forza il div a espandersi a tutta larghezza della pagina */
+    }
+}
